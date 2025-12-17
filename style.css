@@ -54,12 +54,14 @@ p {
 }
 
 .site-header {
+    width: 100%;
     position: sticky;
     top: 0;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 24px;
-    padding: 24px 0;
+    padding: 24px;
     background: linear-gradient(180deg, rgba(7, 10, 17, .95), rgba(7, 10, 17, 0));
     z-index: 10;
 }
@@ -72,7 +74,6 @@ p {
 }
 
 .brand img {
-    width: 48px;
     height: 48px;
 }
 
@@ -184,6 +185,7 @@ main {
     flex-wrap: wrap;
     gap: 12px;
     margin: 24px 0;
+    /* justify-content: center; */
 }
 
 .hero__meta {
@@ -373,8 +375,38 @@ main {
     background: var(--card);
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 8px;
     transition: transform .2s, border-color .2s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.download-card::after {
+    content: '敬请期待';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity .3s;
+    backdrop-filter: blur(4px);
+}
+
+/* 英文版提示 */
+html[lang="en"] .download-card::after {
+    content: 'Coming Soon';
+}
+
+.download-card:hover::after {
+    opacity: 1;
 }
 
 .download-card:hover {
@@ -382,10 +414,29 @@ main {
     border-color: var(--accent);
 }
 
+.download-card img {
+    width: 48px;
+    height: 48px;
+}
+
 .download-card span {
     color: var(--muted);
     font-size: .9rem;
 }
+
+/* macOS - 第一个卡片的icon使用白色背景 */
+/* .download-card:nth-child(1) img {
+    background: #ffffff;
+    padding: 8px;
+    border-radius: 12px;
+} */
+
+/* iOS - 第二个卡片的icon使用白色背景 */
+/* .download-card:nth-child(2) img {
+    background: #ffffff;
+    padding: 8px;
+    border-radius: 12px;
+} */
 
 .customize {
     padding: 80px 0;
@@ -428,6 +479,11 @@ main {
     padding: 30px;
     background: var(--card);
     border: 1px solid var(--card-border);
+}
+
+.plugin-card img {
+    width: 80%;
+    margin: 0 auto;
 }
 
 .cta {

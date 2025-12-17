@@ -12,7 +12,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>OpenFlat_Flat在线教室_个人老师在线授课_Flat开源教室</title>
+    <title>OpenFlat_Flat在线教室_个人老师在线授课_OpenFlat在线教室</title>
     <script>
         if (!localStorage.getItem("flat:language") && navigator.language !== "zh-CN") {
             window.location.href = "/en/";
@@ -25,33 +25,28 @@
     <div class="global-grid" aria-hidden="true"></div>
     <header class="site-header container">
         <a class="brand" href="#top">
-            <img src="./image/flat-icon.svg" alt="Flat" aria-hidden="true">
-            <!-- <div>
-                <strong>Flat</strong>
-                <small>在线教室</small>
-            </div> -->
+            <img src="./image/flat-icon.svg" alt="OpenFlat" aria-hidden="true">
         </a>
-        <nav class="site-nav">
+        <!-- <nav class="site-nav">
             <a href="#features">产品亮点</a>
             <a href="#experience">课堂形态</a>
             <a href="#download">下载</a>
-            <a href="#open-source">互动插件</a>
-        </nav>
+            <a href="#plugin-card">互动插件</a>
+        </nav> -->
         <div class="header-actions">
-            <a class="btn btn--ghost" href="https://flat-web.whiteboard.agora.io/" target="_blank">联系我们</a>
+            <a class="btn btn--ghost" href="mailto:support@openflat.tech" target="_blank">联系我们</a>
             <select id="lang" aria-label="切换语言"></select>            
         </div>
     </header>
     <main id="top">
         <section class="hero container">
             <div class="hero__text">
-                <!-- <p class="eyebrow">MIT 协议 · 完全开源 · 多端一致体验</p> -->
                 <h1>专为个人老师设计的在线教学软件</h1>
                 <p class="lede">支持音视频连麦、白板板书、动态课件展示、发送奖杯等互动教学工具，</p>
                 <p class="lede">开箱即用，助力个人教师顺利开展在线教学服务。</p>
                 <div class="hero__actions">
-                    <a class="btn btn--primary" href="https://flat-web.whiteboard.agora.io/" target="_blank">立即体验</a>
-                    <a class="btn btn--outline" href="#open-source">APP 下载</a>
+                    <a class="btn btn--primary" href="#download">立即体验</a>
+                    <a class="btn btn--outline" href="#download">APP 下载</a>
                 </div>
                 <!-- <dl class="hero__meta">
                     <div>
@@ -70,7 +65,7 @@
             </div>
             <div class="hero__media">
                 <div class="hero-panel">
-                    <img src="./image/hero-image.png" alt="Flat 界面预览">
+                    <img src="./image/hero-image.png" alt="OpenFlat 界面预览">
                     <div class="hero-panel__card">
                         <p>白板涂鸦、动态PPT、举手连麦、发送奖杯、课堂录制、分享回放...</p>
                         <span>一键邀请学员，即刻开课</span>
@@ -116,11 +111,6 @@
                     <h3>课堂插件</h3>
                     <p>通过插件扩展课堂能力，轻松接入答题、打卡、计时、计分或第三方应用。</p>
                 </article>
-                <article>
-                    <img src="./image/source.svg" alt="开源">
-                    <h3>MIT 开源</h3>
-                    <p>完整前后台代码开放，透明架构，易于集成到现有系统。</p>
-                </article>
             </div>
         </section>
 
@@ -129,7 +119,7 @@
                 <div class="section-head">
                     <p class="eyebrow">课堂形态</p>
                     <h2>灵活组合课程模式，适配任何规模</h2>
-                    <p>根据班型随时切换互动能力，Flat 会自动调优布局和权限，让教学过程更顺畅。</p>
+                    <p>根据班型随时切换互动能力，OpenFlat 会自动调优布局和权限，让教学过程更顺畅。</p>
                 </div>
                 <div class="mode-layout">
                     <div class="mode-list" role="tablist">
@@ -171,59 +161,41 @@
                     <h2>下载安装包，或直接打开浏览器使用</h2>
                 </div>
                 <div class="download-grid">
-                    <a class="download-card" href="https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/mac/Flat-2.1.0.dmg">
+                    <!-- https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/mac/Flat-2.1.0.dmg -->
+                    <div class="download-card">
                         <img src="./image/mac.svg" alt="macOS">
                         <strong>macOS</strong>
                         <span>Apple 芯片 + Intel 均可</span>
-                    </a>
-                    <a class="download-card" href="https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/win/Flat-2.1.0.exe">
-                        <img src="./image/windows.svg" alt="Windows">
-                        <strong>Windows</strong>
-                        <span>覆盖 Win10 及以上版本</span>
-                    </a>
-                    <a class="download-card" target="_blank" href="https://flat-web.whiteboard.agora.io/">
-                        <img src="./image/web.svg" alt="Web">
-                        <strong>Web</strong>
-                        <span>浏览器免安装，适合快闪课堂</span>
-                    </a>
-                    <a class="download-card" href="https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/android/Flat-v2.3.0.apk">
-                        <img src="./image/android.svg" alt="Android">
-                        <strong>Android</strong>
-                        <span>随时管理课程及消息</span>
-                    </a>
-                    <a class="download-card" href="https://apps.apple.com/cn/app/flat/id1598891661">
+                    </div>
+                    <!-- https://apps.apple.com/cn/app/flat/id1598891661 -->
+                    <div class="download-card">
                         <img src="./image/ios.svg" alt="iOS">
                         <strong>iOS</strong>
                         <span>支持 iPhone 与 iPad</span>
-                    </a>
+                    </div>
+                    <!-- https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/android/Flat-v2.3.0.apk -->
+                    <div class="download-card">
+                        <img src="./image/android.svg" alt="Android">
+                        <strong>Android</strong>
+                        <span>随时管理课程及消息</span>
+                    </div>
+                    <!-- https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/win/Flat-2.1.0.exe -->
+                    <div class="download-card">
+                        <img src="./image/windows.svg" alt="Windows">
+                        <strong>Windows</strong>
+                        <span>覆盖 Win10 及以上版本</span>
+                    </div>
+                    <!-- https://flat-web.whiteboard.agora.io/ -->
+                    <div class="download-card">
+                        <img src="./image/web.svg" alt="Web">
+                        <strong>Web</strong>
+                        <span>免安装，适合快闪课堂</span>
+                    </div>
                 </div>
             </div>
         </section>
-<!-- 
-        <section class="customize" id="open-source">
-            <div class="container customize__grid">
-                <div>
-                    <p class="eyebrow">开源能力</p>
-                    <h2>MIT 开源协议，真正可控的教学平台</h2>
-                    <ul>
-                        <li>完整代码开放，方便安全审计与二次开发。</li>
-                        <li>基于 Electron + React + TypeScript，工程体系现代易维护。</li>
-                        <li>提供 API、SDK 和脚手架，加速与业务系统打通。</li>
-                        <li>社区协作，持续获得最新功能和最佳实践。</li>
-                    </ul>
-                    <div class="customize__actions">
-                        <a class="btn btn--primary" href="https://github.com/netless-io/flat" target="_blank">访问 GitHub</a>
-                        <a class="btn btn--ghost" href="https://github.com/netless-io/flat#readme" target="_blank">查看文档</a>
-                    </div>
-                </div>
-                <div class="customize__panel">
-                    <img src="./image/skin.png" alt="自定义 UI 预览">
-                    <p>快速替换品牌色、按钮、字体，打造独一无二的课堂体验。</p>
-                </div>
-            </div>
-        </section> -->
 
-        <section class="plugin-showcase container">
+        <section class="plugin-showcase container" id="plugin-card">
             <div class="section-head">
                 <p class="eyebrow">插件与场景</p>
                 <h2>无限组合，连接更多学习工具</h2>
@@ -237,11 +209,11 @@
         <section class="cta">
             <div class="container">
                 <p class="eyebrow">准备好开课了吗？</p>
-                <h2>目前 Flat 正在积极开发中。它在一天天长大，我们很高兴与你分享这份喜悦。</h2>
+                <h2>目前 OpenFlat 正在积极开发中。它在一天天长大，我们很高兴与你分享这份喜悦。</h2>
                 <p>希望在日常教学活动中可以帮助到你。</p>
-                <div class="hero__actions">
-                    <a class="btn btn--primary" href="https://flat-web.whiteboard.agora.io/" target="_blank">立即体验</a>
-                    <a class="btn btn--outline" href="mailto:flat@agora.io">联系我们</a>
+                <div class="hero__actions" style="justify-content: center;">
+                    <a class="btn btn--primary" href="#download">立即体验</a>
+                    <a class="btn btn--outline" href="mailto:support@openflat.tech">联系我们</a>
                 </div>
             </div>
         </section>
@@ -249,13 +221,13 @@
     <footer class="site-footer">
         <div class="container">
             <div>
-                <strong>Flat · 在线教室</strong>
-                <p>浙ICP备2022035526号 杭州高胖胖科技有限公司</p>
+                <strong>OpenFlat</strong>
+                <a href="https://beian.miit.gov.cn/">浙ICP备2022035526号</a> 杭州高胖胖科技有限公司
             </div>
             <div class="footer-links">
                 <a href="privacy.html">隐私政策</a>
                 <a href="service.html">服务协议</a>
-                <a href="mailto:flat@agora.io">flat@agora.io</a>
+                <a href="mailto:support@openflat.tech">support@openflat.tech</a>
             </div>
         </div>
     </footer>
