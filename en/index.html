@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5NHVLY7TP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-J5NHVLY7TP');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Flat Online Classroom</title>
+    <script>
+        if (!localStorage.getItem("flat:language") && navigator.language === "zh-CN") {
+            window.location.href = "/";
+        }
+    </script>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="global-grid" aria-hidden="true"></div>
+    <header class="site-header container">
+        <a class="brand" href="#top">
+            <img src="../image/flat-icon.svg" alt="Flat" aria-hidden="true">
+            <div>
+                <strong>Flat</strong>
+                <small>Virtual Classroom</small>
+            </div>
+        </a>
+        <nav class="site-nav">
+            <a href="#features">Highlights</a>
+            <a href="#experience">Class Modes</a>
+            <a href="#download">Download</a>
+            <a href="#open-source">Open Source</a>
+        </nav>
+        <div class="header-actions">
+            <label class="lang-switch" for="lang">🌐</label>
+            <select id="lang" aria-label="Switch language"></select>
+            <a class="btn btn--ghost" href="https://flat-web.whiteboard.agora.io/" target="_blank" rel="noopener">Try on Web</a>
+            <a class="btn btn--primary" href="https://github.com/netless-io/flat" target="_blank" rel="noopener">GitHub</a>
+        </div>
+    </header>
+    <main id="top">
+        <section class="hero container">
+            <div class="hero__text">
+                <p class="eyebrow">MIT LICENSE · OPEN SOURCE · MULTI-PLATFORM</p>
+                <h1>Deliver immersive, collaborative teaching from anywhere</h1>
+                <p class="lede">Flat merges real-time audio & video, interactive whiteboards, courseware, and plugin capabilities into one elegant interface. Launch lessons instantly or customize every detail to fit your brand.</p>
+                <div class="hero__actions">
+                    <a class="btn btn--primary" href="https://flat-web.whiteboard.agora.io/" target="_blank" rel="noopener">Start a live class</a>
+                    <a class="btn btn--outline" href="#open-source">Explore open source</a>
+                </div>
+                <dl class="hero__meta">
+                    <div>
+                        <dt>5 min</dt>
+                        <dd>From repo to running classroom</dd>
+                    </div>
+                    <div>
+                        <dt>50+ plugins</dt>
+                        <dd>Built for real-world lessons</dd>
+                    </div>
+                    <div>
+                        <dt>Cross-platform</dt>
+                        <dd>macOS · Windows · iOS · Android · Web</dd>
+                    </div>
+                </dl>
+            </div>
+            <div class="hero__media">
+                <div class="hero-panel">
+                    <img src="../image/hero-image.png" alt="Flat interface preview">
+                    <div class="hero-panel__card">
+                        <p>Raise hands, record sessions, and collaborate on the whiteboard with zero setup.</p>
+                        <span>Invite students with a single link.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats container" aria-label="Product impact">
+            <article>
+                <h3>100k+</h3>
+                <p>Educators run classes on Flat every month</p>
+            </article>
+            <article>
+                <h3>99.99%</h3>
+                <p>Uptime during peak teaching hours</p>
+            </article>
+            <article>
+                <h3>Global</h3>
+                <p>Available in 200+ countries and regions</p>
+            </article>
+        </section>
+
+        <section class="feature-grid container" id="features">
+            <div class="section-head">
+                <p class="eyebrow">Highlights</p>
+                <h2>One toolkit for preparation, delivery, and review</h2>
+                <p>Flat keeps the teaching workflow familiar while adding powerful collaborative widgets. Use the default setup or fork the repository and tailor everything to your needs.</p>
+            </div>
+            <div class="grid">
+                <article>
+                    <img src="../image/onetoone.svg" alt="Interaction">
+                    <h3>Live collaboration</h3>
+                    <p>Sub-second A/V plus shared whiteboards, hand raising, breakout rooms, and screen sharing.</p>
+                </article>
+                <article>
+                    <img src="../image/skin.svg" alt="Theme">
+                    <h3>Theme ready</h3>
+                    <p>Gradient, light, and dark presets powered by CSS variables. Keep your brand consistent.</p>
+                </article>
+                <article>
+                    <img src="../image/plugin.svg" alt="Plugin">
+                    <h3>Plugin ecosystem</h3>
+                    <p>Extend with quizzes, timers, check-ins, or custom third-party integrations.</p>
+                </article>
+                <article>
+                    <img src="../image/source.svg" alt="Source">
+                    <h3>Transparent codebase</h3>
+                    <p>MIT licensed front-end and back-end. Inspect, audit, and ship with confidence.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="modes" id="experience">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">Class modes</p>
+                    <h2>Switch layouts to match every audience</h2>
+                    <p>Whether you teach one learner or thousands, Flat adjusts permissions, layout, and interaction tools automatically.</p>
+                </div>
+                <div class="mode-layout">
+                    <div class="mode-list" role="tablist">
+                        <button class="mode-card active" data-mode="big" role="tab">
+                            <img src="../image/bigclass.svg" alt="Big class">
+                            <div>
+                                <strong>Lecture hall</strong>
+                                <p>Broadcast to large audiences with moderated Q&A and raised hands.</p>
+                            </div>
+                        </button>
+                        <button class="mode-card" data-mode="small" role="tab">
+                            <img src="../image/smallclass.svg" alt="Small class">
+                            <div>
+                                <strong>Collaborative group</strong>
+                                <p>2–16 people with adaptive video + whiteboard layouts built for teamwork.</p>
+                            </div>
+                        </button>
+                        <button class="mode-card" data-mode="one" role="tab">
+                            <img src="../image/onetoone.svg" alt="One on one">
+                            <div>
+                                <strong>1:1 coaching</strong>
+                                <p>Personalized tutoring that keeps annotations, notes, and progress synced.</p>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="mode-preview" role="tabpanel">
+                        <img src="./image/bigclass.png" alt="Lecture hall" data-mode-image="big">
+                        <img src="./image/smallclass.png" alt="Group class" data-mode-image="small" hidden>
+                        <img src="./image/onetoone.png" alt="One on one" data-mode-image="one" hidden>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="download" id="download">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">Run anywhere</p>
+                    <h2>Pick your platform—install apps or open the browser</h2>
+                </div>
+                <div class="download-grid">
+                    <a class="download-card" href="https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/mac/Flat-2.1.0.dmg">
+                        <img src="../image/mac.svg" alt="macOS">
+                        <strong>macOS</strong>
+                        <span>Supports both Apple Silicon and Intel</span>
+                    </a>
+                    <a class="download-card" href="https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/win/Flat-2.1.0.exe">
+                        <img src="../image/windows.svg" alt="Windows">
+                        <strong>Windows</strong>
+                        <span>Optimized for Windows 10 and newer</span>
+                    </a>
+                    <a class="download-card" target="_blank" rel="noopener" href="https://flat-web.whiteboard.agora.io/">
+                        <img src="../image/web.svg" alt="Web">
+                        <strong>Web</strong>
+                        <span>No install required—perfect for pop-up classes</span>
+                    </a>
+                    <a class="download-card" href="https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/android/Flat-v2.3.0.apk">
+                        <img src="../image/android.svg" alt="Android">
+                        <strong>Android</strong>
+                        <span>Monitor rooms and chat on the go</span>
+                    </a>
+                    <a class="download-card" href="https://apps.apple.com/app/flat/id1598891661">
+                        <img src="../image/ios.svg" alt="iOS">
+                        <strong>iOS</strong>
+                        <span>Available for iPhone and iPad</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="customize" id="open-source">
+            <div class="container customize__grid">
+                <div>
+                    <p class="eyebrow">Open source</p>
+                    <h2>MIT licensed and production ready</h2>
+                    <ul>
+                        <li>Full codebase for clients and services is public for audits and forks.</li>
+                        <li>Electron + React + TypeScript foundation, easy to maintain and extend.</li>
+                        <li>APIs, SDKs, and scaffolds help you integrate with your LMS or CRM.</li>
+                        <li>A growing community keeps features shipping fast.</li>
+                    </ul>
+                    <div class="customize__actions">
+                        <a class="btn btn--primary" href="https://github.com/netless-io/flat" target="_blank" rel="noopener">Visit GitHub</a>
+                        <a class="btn btn--ghost" href="https://github.com/netless-io/flat#readme" target="_blank" rel="noopener">Read the docs</a>
+                    </div>
+                </div>
+                <div class="customize__panel">
+                    <img src="./image/skin.png" alt="Custom UI preview">
+                    <p>Swap brand colors, typography, and controls to create a signature classroom look.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="plugin-showcase container">
+            <div class="section-head">
+                <p class="eyebrow">Plugins & scenarios</p>
+                <h2>Infinite combinations for creative lessons</h2>
+                <p>Bring quizzes, exercises, attendance, and partner tools right into the same canvas. Build your own plugin or tap into the community.</p>
+            </div>
+            <div class="plugin-card">
+                <img src="./image/plugin.png" alt="Plugin showcase">
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <p class="eyebrow">Ready to teach?</p>
+                <h2>Spin up your next classroom with Flat</h2>
+                <p>Deploy on your own stack in minutes or rely on our managed cloud classrooms.</p>
+                <div class="hero__actions">
+                    <a class="btn btn--primary" href="https://flat-web.whiteboard.agora.io/" target="_blank" rel="noopener">Launch Flat Web</a>
+                    <a class="btn btn--outline" href="mailto:flat@agora.io">Talk to us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <div>
+                <strong>Flat · Virtual Classroom</strong>
+                <p>Copyright © Agora. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="service.html">Terms</a>
+                <a href="mailto:flat@agora.io">flat@agora.io</a>
+            </div>
+        </div>
+    </footer>
+    <script src="../main.js"></script>
+</body>
+</html>
