@@ -547,6 +547,12 @@ html[lang="en"] .download-card::after {
     text-decoration: underline;
 }
 
+.doc-meta .editable,
+.doc-body .editable {
+    font-weight: 600;
+    color: inherit;
+}
+
 .site-footer {
     border-top: 1px solid rgba(255,255,255,.08);
     padding: 32px 0;
