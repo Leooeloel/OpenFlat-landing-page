@@ -400,6 +400,16 @@ main {
     backdrop-filter: blur(4px);
 }
 
+/* 链接类型的下载卡片不显示"敬请期待"，并保持样式一致 */
+a.download-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+a.download-card::after {
+    display: none;
+}
+
 /* 英文版提示 */
 html[lang="en"] .download-card::after {
     content: 'Coming Soon';

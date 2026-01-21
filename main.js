@@ -53,4 +53,34 @@ void function() {
         })
     }
 
+    // 定价标签页切换
+    const pricingTabs = $$('.pricing-tab')
+    const pricingContents = $$('.pricing-content')
+    
+    function switchPricingTab(tabName) {
+        pricingTabs.forEach(tab => {
+            if (tab.dataset.tab === tabName) {
+                tab.classList.add('active')
+            } else {
+                tab.classList.remove('active')
+            }
+        })
+        pricingContents.forEach(content => {
+            if (content.id === tabName) {
+                content.classList.add('active')
+            } else {
+                content.classList.remove('active')
+            }
+        })
+    }
+    
+    if (pricingTabs.length) {
+        pricingTabs.forEach(tab => {
+            tab.on('click', (e) => {
+                e.preventDefault()
+                switchPricingTab(tab.dataset.tab)
+            })
+        })
+    }
+
 }();
