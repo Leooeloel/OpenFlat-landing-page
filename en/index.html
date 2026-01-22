@@ -45,7 +45,7 @@
                 <p class="lede">Supports audio/video interaction, whiteboard annotation, dynamic courseware presentation, sending trophies, and other interactive teaching tools.</p>
                 <p class="lede">Ready to use out of the box, helping individual teachers smoothly conduct online teaching services.</p>
                 <div class="hero__actions">
-                    <a class="btn btn--primary" href="#download">Try Now</a>
+                    <a class="btn btn--primary" href="https://web.openflat.tech/" target="_blank">Try Now</a>
                     <a class="btn btn--outline" href="#download">App Download</a>
                 </div>
                 <!-- <dl class="hero__meta">
@@ -111,6 +111,11 @@
                     <h3>Classroom Plugins</h3>
                     <p>Extend classroom capabilities through plugins, easily integrate quizzes, check-ins, timers, scoring, or third-party applications.</p>
                 </article>
+                <article>
+                    <img src="../image/source.svg" alt="Recording & Playback">
+                    <h3>Recording & Playback</h3>
+                    <p>Support classroom recording, view wonderful playback after class</p>
+                </article>
             </div>
         </section>
 
@@ -162,35 +167,31 @@
                 </div>
                 <div class="download-grid">
                     <!-- https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/mac/Flat-2.1.0.dmg -->
-                    <div class="download-card">
+                    <div class="download-card" id="macDownloadCard">
                         <img src="../image/mac.svg" alt="macOS">
                         <strong>macOS</strong>
                         <span>Supports both Apple Silicon and Intel</span>
                     </div>
-                    <!-- https://apps.apple.com/app/flat/id1598891661 -->
-                    <div class="download-card">
+                    <a href="https://apps.apple.com/app/openflat/id6756606310" target="_blank" class="download-card">
                         <img src="../image/ios.svg" alt="iOS">
                         <strong>iOS</strong>
                         <span>Available for iPhone and iPad</span>
-                    </div>
-                    <!-- https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/android/Flat-v2.3.0.apk -->
-                    <div class="download-card">
+                    </a>
+                    <a href="https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/android/app-flat-release-v2.12.0.apk" target="_blank" class="download-card">
                         <img src="../image/android.svg" alt="Android">
                         <strong>Android</strong>
                         <span>Monitor rooms and chat on the go</span>
-                    </div>
-                    <!-- https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/win/Flat-2.1.0.exe -->
-                    <div class="download-card">
+                    </a>
+                    <a href="https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/win/Flat-x64-2.3.6.exe" target="_blank" class="download-card">
                         <img src="../image/windows.svg" alt="Windows">
                         <strong>Windows</strong>
                         <span>Optimized for Windows 10 and newer</span>
-                    </div>
-                    <!-- https://flat-web.whiteboard.agora.io/ -->
-                    <div class="download-card">
+                    </a>
+                    <a href="https://web.openflat.tech" target="_blank" class="download-card">
                         <img src="../image/web.svg" alt="Web">
                         <strong>Web</strong>
                         <span>No installation, perfect for pop-up classes</span>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -212,7 +213,7 @@
                 <h2>OpenFlat is currently under active development. It's growing every day, and we're excited to share this joy with you.</h2>
                 <p>We hope it can help you in your daily teaching activities.</p>
                 <div class="hero__actions" style="justify-content: center;">
-                    <a class="btn btn--primary" href="#download">Try Now</a>
+                    <a class="btn btn--primary" href="https://web.openflat.tech/" target="_blank">Try Now</a>
                     <a class="btn btn--outline" href="mailto:support@openflat.tech">Contact Us</a>
                 </div>
             </div>
@@ -231,6 +232,22 @@
             </div>
         </div>
     </footer>
+    
+    <!-- macOS 下载选择模态框 -->
+    <div class="mac-download-modal" id="macDownloadModal">
+        <div class="mac-download-modal-content">
+            <button class="mac-download-modal-close" id="macDownloadModalClose">&times;</button>
+            <h3 data-zh="为您的 Mac 下载合适的 OpenFlat 版本" data-en="Download the suitable OpenFlat version for your Mac">Download the suitable OpenFlat version for your Mac</h3>
+            <div class="mac-download-buttons">
+                <a href="https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/mac/Flat-arm64-2.3.6.dmg" class="mac-download-btn mac-download-btn-primary" data-zh="下载 Apple 芯片版本" data-en="Download Apple Silicon">Download Apple Silicon</a>
+                <a href="https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/mac/Flat-x64-2.3.6.dmg" class="mac-download-btn mac-download-btn-secondary" data-zh="下载 Intel 芯片版本" data-en="Download Intel Chip">Download Intel Chip</a>
+            </div>
+            <div class="mac-download-instructions">
+                <p data-zh="打开设置-通用-关于本机，查看芯片类型" data-en="Open Settings - General - About This Mac, check chip type">Open Settings - General - About This Mac, check chip type</p>
+            </div>
+        </div>
+    </div>
+    
     <script src="../main.js"></script>
 </body>
 </html>

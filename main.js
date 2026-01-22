@@ -34,6 +34,23 @@ void function() {
         "en": "/en/",
     }
     const currentLanguage = location.pathname.split("/").filter(Boolean)[0] || "zh-CN"
+    
+    // i18n 功能：更新所有带有 data-zh 和 data-en 属性的元素
+    function updateI18n(lang) {
+        // 判断语言：如果是 "en" 则使用英文，否则使用中文
+        const isEnglish = lang === "en"
+        const langKey = isEnglish ? "en" : "zh"
+        const elements = $$('[data-zh], [data-en]')
+        elements.forEach(el => {
+            const text = el.getAttribute(`data-${langKey}`)
+            if (text) {
+                el.textContent = text
+            }
+        })
+    }
+    
+    // 初始化时更新i18n
+    updateI18n(currentLanguage)
 
     let select = $('#lang')
     if (select) {
@@ -49,6 +66,7 @@ void function() {
         select.on('change', (e) => {
             const language = e.target.value
             localStorage.setItem(langKey, language)
+            updateI18n(language)
             window.location.href = langHref[language]
         })
     }
@@ -80,6 +98,33 @@ void function() {
                 e.preventDefault()
                 switchPricingTab(tab.dataset.tab)
             })
+        })
+    }
+
+    // macOS 下载模态框
+    const macDownloadCard = $('#macDownloadCard')
+    const macDownloadModal = $('#macDownloadModal')
+    const macDownloadModalClose = $('#macDownloadModalClose')
+
+    if (macDownloadCard && macDownloadModal) {
+        macDownloadCard.on('click', (e) => {
+            e.preventDefault()
+            macDownloadModal.classList.add('active')
+        })
+    }
+
+    if (macDownloadModalClose) {
+        macDownloadModalClose.on('click', () => {
+            macDownloadModal.classList.remove('active')
+        })
+    }
+
+    // 点击模态框背景关闭
+    if (macDownloadModal) {
+        macDownloadModal.on('click', (e) => {
+            if (e.target === macDownloadModal) {
+                macDownloadModal.classList.remove('active')
+            }
         })
     }
 

@@ -384,39 +384,10 @@ main {
     overflow: hidden;
 }
 
-.download-card::after {
-    content: '敬请期待';
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.6);
-    color: #ffffff;
-    font-size: 1.125rem;
-    font-weight: 600;
-    opacity: 0;
-    transition: opacity .3s;
-    backdrop-filter: blur(4px);
-}
-
-/* 链接类型的下载卡片不显示"敬请期待"，并保持样式一致 */
+/* 链接类型的下载卡片保持样式一致 */
 a.download-card {
     text-decoration: none;
     color: inherit;
-}
-
-a.download-card::after {
-    display: none;
-}
-
-/* 英文版提示 */
-html[lang="en"] .download-card::after {
-    content: 'Coming Soon';
-}
-
-.download-card:hover::after {
-    opacity: 1;
 }
 
 .download-card:hover {
@@ -608,5 +579,129 @@ html[lang="en"] .download-card::after {
     .footer-links {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+/* macOS 下载模态框样式 */
+.mac-download-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+}
+
+.mac-download-modal.active {
+    display: flex;
+}
+
+.mac-download-modal-content {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.mac-download-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #666;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.mac-download-modal-close:hover {
+    color: #000;
+}
+
+.mac-download-modal-content h3 {
+    margin: 0 0 24px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000;
+    line-height: 1.4;
+}
+
+.mac-download-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.mac-download-btn {
+    flex: 1;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.mac-download-btn-primary {
+    background: #007AFF;
+    color: #ffffff;
+}
+
+.mac-download-btn-primary:hover {
+    background: #0056CC;
+    transform: translateY(-1px);
+}
+
+.mac-download-btn-secondary {
+    background: #ffffff;
+    color: #007AFF;
+    border: 2px solid #007AFF;
+}
+
+.mac-download-btn-secondary:hover {
+    background: #F0F8FF;
+    transform: translateY(-1px);
+}
+
+.mac-download-instructions {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.mac-download-instructions p {
+    margin: 8px 0;
+}
+
+@media (max-width: 600px) {
+    .mac-download-buttons {
+        flex-direction: column;
+    }
+
+    .mac-download-modal-content {
+        padding: 24px;
+    }
+
+    .mac-download-modal-content h3 {
+        font-size: 1.25rem;
+        padding-right: 32px;
     }
 }
