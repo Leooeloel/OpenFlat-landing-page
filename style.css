@@ -591,8 +591,8 @@ a.download-card {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
+    background-color: rgba(7, 10, 17, 0.8);
+    backdrop-filter: blur(8px);
     align-items: center;
     justify-content: center;
 }
@@ -602,13 +602,15 @@ a.download-card {
 }
 
 .mac-download-modal-content {
-    background: #ffffff;
-    border-radius: 16px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
     padding: 32px;
     max-width: 500px;
     width: 90%;
     position: relative;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
 }
 
 .mac-download-modal-close {
@@ -618,7 +620,7 @@ a.download-card {
     background: none;
     border: none;
     font-size: 28px;
-    color: #666;
+    color: var(--muted);
     cursor: pointer;
     line-height: 1;
     padding: 0;
@@ -631,14 +633,14 @@ a.download-card {
 }
 
 .mac-download-modal-close:hover {
-    color: #000;
+    color: var(--text);
 }
 
 .mac-download-modal-content h3 {
     margin: 0 0 24px 0;
     font-size: 1.5rem;
     font-weight: 600;
-    color: #000;
+    color: var(--text);
     line-height: 1.4;
 }
 
@@ -661,28 +663,29 @@ a.download-card {
 }
 
 .mac-download-btn-primary {
-    background: #007AFF;
-    color: #ffffff;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #05070f;
 }
 
 .mac-download-btn-primary:hover {
-    background: #0056CC;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(95, 124, 255, 0.3);
 }
 
 .mac-download-btn-secondary {
-    background: #ffffff;
-    color: #007AFF;
-    border: 2px solid #007AFF;
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--card-border);
 }
 
 .mac-download-btn-secondary:hover {
-    background: #F0F8FF;
-    transform: translateY(-1px);
+    border-color: var(--accent);
+    background: rgba(93, 227, 255, 0.1);
+    transform: translateY(-2px);
 }
 
 .mac-download-instructions {
-    color: #666;
+    color: var(--muted);
     font-size: 0.9rem;
     line-height: 1.6;
 }

@@ -18,13 +18,224 @@
             window.location.href = "/";
         }
     </script>
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
     <link rel="stylesheet" href="../style.css">
+    <style>
+        .pricing-section {
+            padding: 80px 0;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .pricing-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .pricing-tab {
+            padding: 12px 24px;
+            border-radius: 999px;
+            border: 1px solid var(--card-border);
+            background: var(--card);
+            color: var(--text);
+            cursor: pointer;
+            transition: all .2s;
+            font-weight: 500;
+        }
+
+        .pricing-tab:hover {
+            border-color: var(--accent);
+            background: rgba(95, 124, 255, 0.1);
+        }
+
+        .pricing-tab.active {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(95, 124, 255, 0.2), rgba(93, 227, 255, 0.1));
+            color: var(--accent);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            padding: 32px;
+            border-radius: 24px;
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            position: relative;
+            transition: transform .2s, border-color .2s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            background: linear-gradient(180deg, rgba(95, 124, 255, 0.15), rgba(7, 10, 17, 0.6));
+        }
+
+        .pricing-card.one-time {
+            background: linear-gradient(180deg, rgba(255, 165, 0, 0.1), rgba(255, 140, 0, 0.05));
+            border-color: rgba(255, 165, 0, 0.3);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #05070f;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .pricing-card.one-time .pricing-badge {
+            background: linear-gradient(135deg, #ff8c00, #ffa500);
+        }
+
+        .pricing-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .pricing-price {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .pricing-price-current {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4ade80;
+        }
+
+        .pricing-price-original {
+            font-size: 1.2rem;
+            color: var(--muted);
+            text-decoration: line-through;
+        }
+
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 32px;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-feature-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            opacity: 0.8;
+        }
+
+        .pricing-feature-text {
+            flex: 1;
+            color: var(--text);
+        }
+
+        .pricing-button {
+            width: 100%;
+            padding: 14px 24px;
+            border-radius: 999px;
+            font-weight: 600;
+            text-align: center;
+            display: block;
+            transition: all .2s;
+        }
+
+        .pricing-button--primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #05070f;
+        }
+
+        .pricing-button--primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(95, 124, 255, 0.3);
+        }
+
+        .pricing-button--outline {
+            border: 1px solid var(--card-border);
+            color: var(--text);
+        }
+
+        .pricing-button--outline:hover {
+            border-color: var(--accent);
+            background: rgba(93, 227, 255, 0.1);
+        }
+
+        .pricing-content {
+            display: none;
+        }
+
+        .pricing-content.active {
+            display: block;
+        }
+
+        .pricing-cta {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            border-radius: 24px;
+            background: var(--card);
+            border: 1px solid var(--card-border);
+        }
+
+        .pricing-cta p {
+            color: var(--muted);
+            margin-top: 12px;
+        }
+
+        .pricing-cta a {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-price-current {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="global-grid" aria-hidden="true"></div>
     <header class="site-header container">
-        <a class="brand" href="#top">
+        <a class="brand" href="/en/">
             <img src="../image/flat-icon.svg" alt="OpenFlat" aria-hidden="true">
         </a>
         <!-- <nav class="site-nav">
@@ -34,6 +245,7 @@
             <a href="#plugin-card">Plugins</a>
         </nav> -->
         <div class="header-actions">
+            <a class="btn btn--ghost" href="#pricing">Pricing</a>
             <a class="btn btn--ghost" href="mailto:support@openflat.tech" target="_blank">Contact Us</a>
             <select id="lang" aria-label="Switch language"></select>
         </div>
@@ -114,7 +326,7 @@
                 <article>
                     <img src="../image/source.svg" alt="Recording & Playback">
                     <h3>Recording & Playback</h3>
-                    <p>Support classroom recording, view wonderful playback after class</p>
+                    <p>Support recording classroom sessions, view wonderful playback after class</p>
                 </article>
             </div>
         </section>
@@ -162,8 +374,8 @@
         <section class="download" id="download">
             <div class="container">
                 <div class="section-head">
-                    <p class="eyebrow">Run anywhere</p>
-                    <h2>Pick your platform—install apps or open the browser</h2>
+                    <p class="eyebrow">Start class on any device</p>
+                    <h2>Download the installer, or use directly in your browser</h2>
                 </div>
                 <div class="download-grid">
                     <!-- https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/mac/Flat-2.1.0.dmg -->
@@ -180,7 +392,7 @@
                     <a href="https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/android/app-flat-release-v2.12.0.apk" target="_blank" class="download-card">
                         <img src="../image/android.svg" alt="Android">
                         <strong>Android</strong>
-                        <span>Monitor rooms and chat on the go</span>
+                        <span>Download APK installer</span>
                     </a>
                     <a href="https://flat-storage.oss-accelerate.aliyuncs.com/versions/latest/stable/win/Flat-x64-2.3.6.exe" target="_blank" class="download-card">
                         <img src="../image/windows.svg" alt="Windows">
@@ -190,20 +402,390 @@
                     <a href="https://web.openflat.tech" target="_blank" class="download-card">
                         <img src="../image/web.svg" alt="Web">
                         <strong>Web</strong>
-                        <span>No installation, perfect for pop-up classes</span>
+                        <span>No installation, start class anytime, anywhere</span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="plugin-showcase container" id="plugin-card">
-            <div class="section-head">
-                <p class="eyebrow">Plugins & Scenarios</p>
-                <h2>Unlimited combinations, connect more learning tools</h2>
-                <p>Support plugins to display quiz tools, online documents, code editors, PPT documents, audio/video and other resources in the classroom.</p>
+        <section class="pricing-section container" id="pricing">
+            <div class="pricing-header">
+                <p class="eyebrow">Pricing Plans</p>
+                <h2>Choose the plan that suits you</h2>
+                <p>Choose based on your class frequency, or purchase a one-time package directly</p>
             </div>
-            <div class="plugin-card">
-                <img src="../image/plugin.png" alt="Plugin Example">
+
+            <div class="pricing-tabs">
+                <button type="button" class="pricing-tab active" data-tab="monthly">Monthly</button>
+                <button type="button" class="pricing-tab" data-tab="annual">Annual</button>
+                <button type="button" class="pricing-tab" data-tab="onetime">One-time Package</button>
+            </div>
+
+            <!-- Monthly Plans -->
+            <div class="pricing-content active" id="monthly">
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-title">Basic</div>
+                        <div class="pricing-badge">27% off</div>
+                        <div class="pricing-price">
+                            <span class="pricing-price-current">¥40.00</span>
+                            <span class="pricing-price-original">¥55.00</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                                </svg>
+                                <span class="pricing-feature-text">10 classes/month</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">120 minutes per session</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                                </svg>
+                                <span class="pricing-feature-text">Peak capacity: 16</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/>
+                                </svg>
+                                <span class="pricing-feature-text">Cloud recording & playback</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                </svg>
+                                <span class="pricing-feature-text">5 GB cloud storage</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">Screen sharing</span>
+                            </li>
+                        </ul>
+                        <a href="mailto:support@openflat.tech?subject=Subscribe Basic Monthly Plan" class="pricing-button pricing-button--primary">Subscribe Now</a>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <div class="pricing-title">Professional</div>
+                        <div class="pricing-badge">33% off</div>
+                        <div class="pricing-price">
+                            <span class="pricing-price-current">¥120.00</span>
+                            <span class="pricing-price-original">¥180.00</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                                </svg>
+                                <span class="pricing-feature-text">30 classes/month</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">120 minutes per session</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                                </svg>
+                                <span class="pricing-feature-text">Peak capacity: 32</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/>
+                                </svg>
+                                <span class="pricing-feature-text">Cloud recording & playback</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                </svg>
+                                <span class="pricing-feature-text">20 GB cloud storage</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">Screen sharing</span>
+                            </li>
+                        </ul>
+                        <a href="mailto:support@openflat.tech?subject=Subscribe Professional Monthly Plan" class="pricing-button pricing-button--primary">Subscribe Now</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-title">Advanced</div>
+                        <div class="pricing-badge">35% off</div>
+                        <div class="pricing-price">
+                            <span class="pricing-price-current">¥280.00</span>
+                            <span class="pricing-price-original">¥430.00</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                                </svg>
+                                <span class="pricing-feature-text">70 classes/month</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">180 minutes per session</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                                </svg>
+                                <span class="pricing-feature-text">Peak capacity: 80</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/>
+                                </svg>
+                                <span class="pricing-feature-text">Cloud recording & playback</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                </svg>
+                                <span class="pricing-feature-text">50 GB cloud storage</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">Screen sharing</span>
+                            </li>
+                        </ul>
+                        <a href="mailto:support@openflat.tech?subject=Subscribe Advanced Monthly Plan" class="pricing-button pricing-button--primary">Subscribe Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Annual Plans -->
+            <div class="pricing-content" id="annual">
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-title">Basic</div>
+                        <div class="pricing-badge">33% off</div>
+                        <div class="pricing-price">
+                            <span class="pricing-price-current">¥440.00</span>
+                            <span class="pricing-price-original">¥660.00</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                                </svg>
+                                <span class="pricing-feature-text">10 classes/month</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">120 minutes per session</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                                </svg>
+                                <span class="pricing-feature-text">Peak capacity: 16</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/>
+                                </svg>
+                                <span class="pricing-feature-text">Cloud recording & playback</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                </svg>
+                                <span class="pricing-feature-text">5 GB cloud storage</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">Screen sharing</span>
+                            </li>
+                        </ul>
+                        <a href="mailto:support@openflat.tech?subject=Subscribe Basic Annual Plan" class="pricing-button pricing-button--primary">Subscribe Now</a>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <div class="pricing-title">Professional</div>
+                        <div class="pricing-badge">39% off</div>
+                        <div class="pricing-price">
+                            <span class="pricing-price-current">¥1320.00</span>
+                            <span class="pricing-price-original">¥2160.00</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                                </svg>
+                                <span class="pricing-feature-text">30 classes/month</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">120 minutes per session</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                                </svg>
+                                <span class="pricing-feature-text">Peak capacity: 32</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/>
+                                </svg>
+                                <span class="pricing-feature-text">Cloud recording & playback</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                </svg>
+                                <span class="pricing-feature-text">20 GB cloud storage</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">Screen sharing</span>
+                            </li>
+                        </ul>
+                        <a href="mailto:support@openflat.tech?subject=Subscribe Professional Annual Plan" class="pricing-button pricing-button--primary">Subscribe Now</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-title">Advanced</div>
+                        <div class="pricing-badge">40% off</div>
+                        <div class="pricing-price">
+                            <span class="pricing-price-current">¥3080.00</span>
+                            <span class="pricing-price-original">¥5160.00</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                                </svg>
+                                <span class="pricing-feature-text">70 classes/month</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">180 minutes per session</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                                </svg>
+                                <span class="pricing-feature-text">Peak capacity: 80</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/>
+                                </svg>
+                                <span class="pricing-feature-text">Cloud recording & playback</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                </svg>
+                                <span class="pricing-feature-text">50 GB cloud storage</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">Screen sharing</span>
+                            </li>
+                        </ul>
+                        <a href="mailto:support@openflat.tech?subject=Subscribe Advanced Annual Plan" class="pricing-button pricing-button--primary">Subscribe Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- One-time Package -->
+            <div class="pricing-content" id="onetime">
+                <div class="pricing-grid" style="grid-template-columns: 1fr; max-width: 500px;">
+                    <div class="pricing-card one-time">
+                        <div class="pricing-title">Enjoyment Edition</div>
+                        <div class="pricing-badge">50% off</div>
+                        <div class="pricing-price">
+                            <span class="pricing-price-current">¥6000.00</span>
+                            <span class="pricing-price-original">¥12000.00</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">Unlimited classes</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">1 year validity</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">180 minutes per session</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                                </svg>
+                                <span class="pricing-feature-text">Peak capacity: 100</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/>
+                                </svg>
+                                <span class="pricing-feature-text">Cloud recording & playback</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                </svg>
+                                <span class="pricing-feature-text">100 GB cloud storage</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">Screen sharing</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">One-on-one exclusive support</span>
+                            </li>
+                        </ul>
+                        <a href="mailto:support@openflat.tech?subject=Purchase Enjoyment Edition One-time Package" class="pricing-button pricing-button--primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-cta">
+                <p>For customized purchase, please <a href="mailto:support@openflat.tech">contact us</a></p>
             </div>
         </section>
 
@@ -223,7 +805,6 @@
         <div class="container">
             <div>
                 <strong>OpenFlat</strong>
-                <a href="https://beian.miit.gov.cn/">浙ICP备2022035526号</a> Hangzhou Gaopangpang Technology Co., Ltd.
             </div>
             <div class="footer-links">
                 <a href="privacy.html">Privacy Policy</a>
