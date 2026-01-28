@@ -128,4 +128,69 @@ void function() {
         })
     }
 
+    // 移动端菜单切换
+    const mobileMenuToggle = $('#mobileMenuToggle')
+    const mainNav = $('#mainNav')
+    
+    if (mobileMenuToggle && mainNav) {
+        mobileMenuToggle.on('click', () => {
+            const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true'
+            mobileMenuToggle.setAttribute('aria-expanded', !isExpanded)
+            mainNav.classList.toggle('active')
+            document.body.style.overflow = !isExpanded ? 'hidden' : ''
+        })
+        
+        // 点击菜单链接后关闭菜单并滚动到对应位置
+        const navLinks = mainNav.querySelectorAll('a')
+        navLinks.forEach(link => {
+            link.on('click', (e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                
+                const href = link.getAttribute('href')
+                if (!href) return
+                
+                // 如果是锚点链接
+                if (href.startsWith('#')) {
+                    const targetId = href.substring(1)
+                    const targetElement = document.getElementById(targetId) || document.querySelector(`[id="${targetId}"]`)
+                    
+                    // 先关闭菜单
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false')
+                    mainNav.classList.remove('active')
+                    document.body.style.overflow = ''
+                    
+                    // 等待菜单关闭动画完成后再滚动
+                    setTimeout(() => {
+                        if (targetElement) {
+                            const headerHeight = document.querySelector('.site-header')?.offsetHeight || 0
+                            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20
+                            
+                            window.scrollTo({
+                                top: Math.max(0, targetPosition),
+                                behavior: 'smooth'
+                            })
+                        } else {
+                            // 如果没有找到目标元素，使用默认的锚点跳转
+                            window.location.href = href
+                        }
+                    }, 350) // 等待菜单关闭动画（0.3s）+ 额外缓冲
+                } else {
+                    // 非锚点链接，直接跳转
+                    window.location.href = href
+                }
+            })
+        })
+        
+        // 点击遮罩层关闭菜单（但不阻止链接点击）
+        mainNav.on('click', (e) => {
+            // 如果点击的是遮罩层本身（不是链接），才关闭菜单
+            if (e.target === mainNav || (e.target.classList.contains('site-nav') && !e.target.closest('a'))) {
+                mobileMenuToggle.setAttribute('aria-expanded', 'false')
+                mainNav.classList.remove('active')
+                document.body.style.overflow = ''
+            }
+        })
+    }
+
 }();

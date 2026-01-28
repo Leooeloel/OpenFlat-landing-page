@@ -42,6 +42,12 @@ p {
     margin: 0 auto;
 }
 
+@media (max-width: 600px) {
+    .container {
+        width: calc(100% - 24px);
+    }
+}
+
 .global-grid {
     position: fixed;
     inset: 0;
@@ -110,12 +116,55 @@ p {
     gap: 12px;
 }
 
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 11;
+}
+
+.mobile-menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
 select {
     background: transparent;
     border: 1px solid var(--card-border);
     color: var(--text);
     border-radius: 999px;
     padding: 6px 10px;
+    min-width: 100px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23f2f6ff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 28px;
 }
 
 .lang-switch {
@@ -269,6 +318,17 @@ main {
     border-radius: 24px;
     background: var(--card);
     border: 1px solid var(--card-border);
+}
+
+/* 锚点滚动偏移，考虑sticky header高度 */
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+@media (max-width: 880px) {
+    section[id] {
+        scroll-margin-top: 80px;
+    }
 }
 
 .stats h3 {
@@ -553,17 +613,112 @@ a.download-card {
     gap: 20px;
 }
 
+.footer-lang {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@media (max-width: 1024px) and (min-width: 881px) {
+    .site-nav {
+        gap: 12px;
+        font-size: 0.9rem;
+    }
+    .site-nav a {
+        padding: 4px 6px;
+    }
+}
+
 @media (max-width: 880px) {
     .site-header {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-wrap: nowrap;
+        justify-content: space-between;
         gap: 16px;
+        padding: 16px;
+    }
+    .brand {
+        flex-shrink: 0;
     }
     .site-nav {
-        flex-wrap: wrap;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: var(--bg);
+        border-left: 1px solid var(--card-border);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 80px 24px 24px;
+        gap: 0;
+        transition: right 0.3s ease;
+        z-index: 100;
+        overflow-y: auto;
+    }
+    .site-nav.active {
+        right: 0;
+    }
+    .site-nav a {
+        width: 100%;
+        padding: 16px 0;
+        font-size: 1rem;
+        border-bottom: 1px solid var(--card-border);
+        opacity: 1;
+        position: relative;
+        z-index: 101;
+        cursor: pointer;
+        display: block;
+    }
+    .site-nav a:last-child {
+        border-bottom: none;
     }
     .header-actions {
-        flex-wrap: wrap;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    .desktop-lang {
+        display: block;
+    }
+    /* 移动端菜单背景遮罩 */
+    .site-nav::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 99;
+    }
+    .site-nav.active::after {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-header {
+        padding: 12px;
+    }
+    .brand img {
+        height: 36px;
+    }
+    .site-nav {
+        width: 260px;
+        padding: 70px 20px 20px;
+    }
+    .site-nav.active ~ .header-actions select,
+    .site-nav.active + .header-actions select {
+        top: 70px;
+        right: 20px;
     }
 }
 
