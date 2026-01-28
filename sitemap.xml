@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- 中文首页 -->
+  <url>
+    <loc>https://openflat.tech/</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://openflat.tech/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://openflat.tech/en/"/>
+  </url>
+  
+  <!-- 英文首页 -->
+  <url>
+    <loc>https://openflat.tech/en/</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://openflat.tech/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://openflat.tech/en/"/>
+  </url>
+  
+  <!-- 隐私政策 -->
+  <url>
+    <loc>https://openflat.tech/privacy.html</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://openflat.tech/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://openflat.tech/en/privacy.html"/>
+  </url>
+  
+  <!-- 英文隐私政策 -->
+  <url>
+    <loc>https://openflat.tech/en/privacy.html</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://openflat.tech/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://openflat.tech/en/privacy.html"/>
+  </url>
+  
+  <!-- 服务协议 -->
+  <url>
+    <loc>https://openflat.tech/service.html</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://openflat.tech/service.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://openflat.tech/en/service.html"/>
+  </url>
+  
+  <!-- 英文服务协议 -->
+  <url>
+    <loc>https://openflat.tech/en/service.html</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://openflat.tech/service.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://openflat.tech/en/service.html"/>
+  </url>
+  
+  <!-- 服务购买须知 -->
+  <url>
+    <loc>https://openflat.tech/rules.html</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://openflat.tech/rules.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://openflat.tech/en/rules.html"/>
+  </url>
+  
+  <!-- 英文服务购买须知 -->
+  <url>
+    <loc>https://openflat.tech/en/rules.html</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://openflat.tech/rules.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://openflat.tech/en/rules.html"/>
+  </url>
+</urlset>
