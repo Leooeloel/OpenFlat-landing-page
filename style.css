@@ -444,6 +444,30 @@ section[id] {
     overflow: hidden;
 }
 
+.download-card.coming-soon {
+    cursor: not-allowed;
+}
+
+.download-card.coming-soon::after {
+    content: attr(data-coming);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(7, 10, 17, 0.82);
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 2;
+}
+
+.download-card.coming-soon:hover::after {
+    opacity: 1;
+}
+
 /* 链接类型的下载卡片保持样式一致 */
 a.download-card {
     text-decoration: none;

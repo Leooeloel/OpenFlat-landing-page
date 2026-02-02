@@ -106,7 +106,7 @@ void function() {
     const macDownloadModal = $('#macDownloadModal')
     const macDownloadModalClose = $('#macDownloadModalClose')
 
-    if (macDownloadCard && macDownloadModal) {
+    if (macDownloadCard && macDownloadModal && !macDownloadCard.classList.contains('coming-soon')) {
         macDownloadCard.on('click', (e) => {
             e.preventDefault()
             macDownloadModal.classList.add('active')
