@@ -183,7 +183,8 @@
     <link rel="stylesheet" href="../style.css">
     <style>
         .pricing-section {
-            padding: 80px 0;
+            padding: 40px 0 80px;
+            margin-top: -40px;
         }
 
         .pricing-header {
@@ -381,6 +382,90 @@
             text-decoration: underline;
         }
 
+        /* FAQ Section */
+        .faq-section {
+            padding: 20px 0 80px;
+            margin-top: -40px;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            background: var(--card);
+            overflow: hidden;
+            transition: border-color .2s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 20px 24px;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: color .2s;
+        }
+
+        .faq-question:hover {
+            color: var(--accent);
+        }
+
+        .faq-question span {
+            flex: 1;
+        }
+
+        .faq-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            transition: transform .3s ease;
+            color: var(--accent);
+        }
+
+        .faq-item[aria-expanded="true"] .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease, padding .3s ease;
+            padding: 0 24px;
+        }
+
+        .faq-item[aria-expanded="true"] .faq-answer {
+            max-height: 500px;
+            padding: 0 24px 20px;
+        }
+
+        .faq-answer p {
+            color: var(--muted);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .faq-answer a {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
             .pricing-grid {
                 grid-template-columns: 1fr;
@@ -388,6 +473,19 @@
 
             .pricing-price-current {
                 font-size: 2rem;
+            }
+            
+            .faq-question {
+                padding: 16px 20px;
+                font-size: 1rem;
+            }
+            
+            .faq-answer {
+                padding: 0 20px;
+            }
+            
+            .faq-item[aria-expanded="true"] .faq-answer {
+                padding: 0 20px 16px;
             }
         }
         
@@ -416,6 +514,7 @@
             <a href="#experience">Class Modes</a>
             <a href="#download">Download</a>
             <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
         </nav>
         <div class="header-actions">
             <select id="lang" aria-label="Switch language" class="desktop-lang">
@@ -971,6 +1070,81 @@
 
             <div class="pricing-cta">
                 <p>For customized purchase, please <a href="mailto:support@openflat.tech">contact us</a></p>
+            </div>
+        </section>
+
+        <section class="faq-section container" id="faq">
+            <div class="section-head">
+                <p class="eyebrow">FAQ</p>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item" aria-expanded="false">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Can I try it for free?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! OpenFlat offers a Free trial plan. Please contact customer service (support@openflat.tech) to get trial benefits.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Under what circumstances will 1 class session be deducted? Will it be deducted if the teacher prepares alone?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A class session will be deducted only when there are at least two people in the room simultaneously, and the room lasts for at least 10 minutes. This means that if the teacher is alone in the room preparing, no class session will be deducted.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Can I purchase class sessions separately?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>If you have already subscribed to a plan, you can purchase class sessions separately as needed to avoid affecting normal use due to insufficient sessions. However, please note that separately purchased class sessions must be used within the current subscription period.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Will the waiting time for students to join be counted in the room duration?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Each class session includes an additional 10 minutes of waiting time for students to join and 5 minutes of overtime.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What should I do if the room has more than 100 people?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>After subscribing to the Enjoy plan, the room supports up to 100 people. If this still cannot meet your needs, please contact customer service (support@openflat.tech) for custom processing.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Can I request a refund?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Unused services (no valid class sessions consumed during the subscription period) can apply for a full refund within 7 days after purchase. Used services do not support refunds. If you believe you are eligible for a refund, please contact us at <a href="mailto:support@openflat.tech">support@openflat.tech</a>, and we will be happy to help.</p>
+                    </div>
+                </div>
             </div>
         </section>
 

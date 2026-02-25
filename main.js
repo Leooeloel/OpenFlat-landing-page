@@ -193,4 +193,27 @@ void function() {
         })
     }
 
+    // FAQ 展开/收起功能
+    const faqQuestions = $$('.faq-question')
+    faqQuestions.forEach(question => {
+        question.on('click', () => {
+            const faqItem = question.closest('.faq-item')
+            const isExpanded = question.getAttribute('aria-expanded') === 'true'
+            
+            // 关闭其他展开的FAQ
+            faqQuestions.forEach(q => {
+                if (q !== question) {
+                    const item = q.closest('.faq-item')
+                    q.setAttribute('aria-expanded', 'false')
+                    if (item) item.setAttribute('aria-expanded', 'false')
+                }
+            })
+            
+            // 切换当前FAQ
+            const newState = !isExpanded
+            question.setAttribute('aria-expanded', newState)
+            if (faqItem) faqItem.setAttribute('aria-expanded', newState)
+        })
+    })
+
 }();
