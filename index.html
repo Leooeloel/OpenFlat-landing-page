@@ -166,7 +166,7 @@
           "name": "OpenFlat的定价方案有哪些？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "OpenFlat提供基础版、专业版、高级版三种月度/年度订阅套餐，以及一次性购买的畅享版套餐。不同套餐在课次、时长、峰值人数、云盘容量等方面有所不同，可根据教学需求选择。"
+            "text": "OpenFlat提供体验版月度套餐，以及基础版、专业版、高级版月度/年度订阅套餐和一次性购买的畅享版套餐。不同套餐在课次、时长、峰值人数、云盘容量等方面有所不同，可根据教学需求选择。"
           }
         }
       ]
@@ -224,10 +224,14 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 24px;
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        #monthly .pricing-grid {
+            max-width: 1328px;
         }
 
         .pricing-card {
@@ -333,6 +337,60 @@
             text-align: center;
             display: block;
             transition: all .2s;
+            border: 0;
+            cursor: pointer;
+        }
+
+        .pricing-action {
+            position: relative;
+        }
+
+        .pricing-qr-popover {
+            position: absolute;
+            left: 50%;
+            bottom: calc(100% + 16px);
+            width: 220px;
+            padding: 14px;
+            border-radius: 20px;
+            background: #0b1220;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, 12px);
+            transition: opacity .2s, transform .2s;
+            z-index: 10;
+        }
+
+        .pricing-qr-popover::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 8px solid transparent;
+            border-top-color: #0b1220;
+        }
+
+        .pricing-action--qr:hover .pricing-qr-popover,
+        .pricing-action--qr:focus-within .pricing-qr-popover {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate(-50%, 0);
+        }
+
+        .pricing-qr-popover img {
+            width: 100%;
+            display: block;
+            border-radius: 14px;
+            background: #fff;
+        }
+
+        .pricing-qr-popover p {
+            margin: 12px 0 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.92rem;
         }
 
         .pricing-button--primary {
@@ -469,6 +527,27 @@
         @media (max-width: 768px) {
             .pricing-grid {
                 grid-template-columns: 1fr;
+            }
+
+            #monthly .pricing-grid {
+                max-width: 100%;
+            }
+
+            .pricing-qr-popover {
+                left: 0;
+                right: 0;
+                width: auto;
+                transform: translateY(12px);
+            }
+
+            .pricing-qr-popover::after {
+                left: 40px;
+                transform: none;
+            }
+
+            .pricing-action--qr:hover .pricing-qr-popover,
+            .pricing-action--qr:focus-within .pricing-qr-popover {
+                transform: translateY(0);
             }
 
             .pricing-price-current {
@@ -707,6 +786,60 @@
             <!-- 月度套餐 -->
             <div class="pricing-content active" id="monthly">
                 <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-title">体验版</div>
+                        <div class="pricing-badge">8.3折</div>
+                        <div class="pricing-price">
+                            <span class="pricing-price-current">¥25.00</span>
+                            <span class="pricing-price-original">¥30.00</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                                </svg>
+                                <span class="pricing-feature-text">课次 5 次/月</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">单房间最大时长 60 分钟</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                                </svg>
+                                <span class="pricing-feature-text">单房间最大人数 8</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/>
+                                </svg>
+                                <span class="pricing-feature-text">云录制及回放</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                </svg>
+                                <span class="pricing-feature-text">云盘 3 GB</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">屏幕共享</span>
+                            </li>
+                        </ul>
+                        <div class="pricing-action pricing-action--qr">
+                            <button type="button" class="pricing-button pricing-button--primary">立即订阅</button>
+                            <div class="pricing-qr-popover">
+                                <img src="./image/contact.jpg" alt="体验版订阅二维码">
+                                <p>扫描二维码订阅体验版</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="pricing-card">
                         <div class="pricing-title">基础版</div>
                         <div class="pricing-badge">7.3折</div>
@@ -1080,13 +1213,13 @@
             <div class="faq-list">
                 <div class="faq-item" aria-expanded="false">
                     <button class="faq-question" aria-expanded="false">
-                        <span>我可以免费试用吗？</span>
+                        <span>有体验版吗？</span>
                         <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <p>是的！OpenFlat 提供一个 Free 体验计划，欢迎联系客服（support@openflat.tech）获取体验权益。</p>
+                        <p>有。OpenFlat 提供体验版月度套餐，价格 ¥25.00，原价 ¥30.00。点击体验版「立即订阅」后，扫描二维码即可订阅。</p>
                     </div>
                 </div>
                 <div class="faq-item" aria-expanded="false">

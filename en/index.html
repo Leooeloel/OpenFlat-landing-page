@@ -166,7 +166,7 @@
           "name": "What pricing plans does OpenFlat offer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "OpenFlat offers Basic, Professional, and Premium monthly/annual subscription plans, as well as a one-time purchase Enjoy plan. Different plans vary in class count, duration, peak number of participants, cloud storage capacity, etc. You can choose according to your teaching needs."
+            "text": "OpenFlat offers an Experience monthly plan, plus Basic, Professional, and Premium monthly/annual subscription plans, as well as a one-time purchase Enjoy plan. Different plans vary in class count, duration, peak number of participants, cloud storage capacity, etc. You can choose according to your teaching needs."
           }
         }
       ]
@@ -224,10 +224,14 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 24px;
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        #monthly .pricing-grid {
+            max-width: 1328px;
         }
 
         .pricing-card {
@@ -333,6 +337,60 @@
             text-align: center;
             display: block;
             transition: all .2s;
+            border: 0;
+            cursor: pointer;
+        }
+
+        .pricing-action {
+            position: relative;
+        }
+
+        .pricing-qr-popover {
+            position: absolute;
+            left: 50%;
+            bottom: calc(100% + 16px);
+            width: 220px;
+            padding: 14px;
+            border-radius: 20px;
+            background: #0b1220;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, 12px);
+            transition: opacity .2s, transform .2s;
+            z-index: 10;
+        }
+
+        .pricing-qr-popover::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 8px solid transparent;
+            border-top-color: #0b1220;
+        }
+
+        .pricing-action--qr:hover .pricing-qr-popover,
+        .pricing-action--qr:focus-within .pricing-qr-popover {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate(-50%, 0);
+        }
+
+        .pricing-qr-popover img {
+            width: 100%;
+            display: block;
+            border-radius: 14px;
+            background: #fff;
+        }
+
+        .pricing-qr-popover p {
+            margin: 12px 0 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.92rem;
         }
 
         .pricing-button--primary {
@@ -469,6 +527,27 @@
         @media (max-width: 768px) {
             .pricing-grid {
                 grid-template-columns: 1fr;
+            }
+
+            #monthly .pricing-grid {
+                max-width: 100%;
+            }
+
+            .pricing-qr-popover {
+                left: 0;
+                right: 0;
+                width: auto;
+                transform: translateY(12px);
+            }
+
+            .pricing-qr-popover::after {
+                left: 40px;
+                transform: none;
+            }
+
+            .pricing-action--qr:hover .pricing-qr-popover,
+            .pricing-action--qr:focus-within .pricing-qr-popover {
+                transform: translateY(0);
             }
 
             .pricing-price-current {
@@ -708,6 +787,60 @@
             <!-- Monthly Plans -->
             <div class="pricing-content active" id="monthly">
                 <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-title">Experience</div>
+                        <div class="pricing-badge">17% off</div>
+                        <div class="pricing-price">
+                            <span class="pricing-price-current">¥25.00</span>
+                            <span class="pricing-price-original">¥30.00</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                                </svg>
+                                <span class="pricing-feature-text">5 classes/month</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">60 minutes per room</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                                </svg>
+                                <span class="pricing-feature-text">Peak capacity: 8</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/>
+                                </svg>
+                                <span class="pricing-feature-text">Cloud recording & playback</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                </svg>
+                                <span class="pricing-feature-text">3 GB cloud storage</span>
+                            </li>
+                            <li>
+                                <svg class="pricing-feature-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="pricing-feature-text">Screen sharing</span>
+                            </li>
+                        </ul>
+                        <div class="pricing-action pricing-action--qr">
+                            <button type="button" class="pricing-button pricing-button--primary">Subscribe Now</button>
+                            <div class="pricing-qr-popover">
+                                <img src="../image/contact.jpg" alt="Experience plan QR code">
+                                <p>Scan the QR code to subscribe</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="pricing-card">
                         <div class="pricing-title">Basic</div>
                         <div class="pricing-badge">27% off</div>
@@ -1081,13 +1214,13 @@
             <div class="faq-list">
                 <div class="faq-item" aria-expanded="false">
                     <button class="faq-question" aria-expanded="false">
-                        <span>Can I try it for free?</span>
+                        <span>Is there an Experience plan?</span>
                         <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes! OpenFlat offers a Free trial plan. Please contact customer service (support@openflat.tech) to get trial benefits.</p>
+                        <p>Yes. OpenFlat offers a monthly Experience plan at ¥25.00, with an original price of ¥30.00. Hover or focus the Experience plan's "Subscribe Now" button and scan the QR code to subscribe.</p>
                     </div>
                 </div>
                 <div class="faq-item">
