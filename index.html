@@ -770,21 +770,24 @@
             </div>
         </section>
 
-        <section class="pricing-section container" id="pricing">
-            <div class="pricing-header">
-                <p class="eyebrow">定价方案</p>
-                <h2>选择适合您的套餐</h2>
-                <p>根据你的上课频次选择，或直接购买一次性套餐</p>
-            </div>
+        <section class="pricing-section" id="pricing">
+            <div class="container">
+                <div class="pricing-header">
+                    <p class="eyebrow">定价方案</p>
+                    <h2>选择适合您的套餐</h2>
+                    <p>根据你的上课频次选择，或直接购买一次性套餐</p>
+                </div>
 
-            <div class="pricing-tabs">
-                <button type="button" class="pricing-tab active" data-tab="monthly">月度</button>
-                <button type="button" class="pricing-tab" data-tab="annual">年度</button>
-                <button type="button" class="pricing-tab" data-tab="onetime">一次性套餐</button>
+                <div class="pricing-tabs">
+                    <button type="button" class="pricing-tab active" data-tab="monthly">月度</button>
+                    <button type="button" class="pricing-tab" data-tab="annual">年度</button>
+                    <button type="button" class="pricing-tab" data-tab="onetime">一次性套餐</button>
+                </div>
             </div>
 
             <!-- 月度套餐 -->
-            <div class="pricing-content active" id="monthly">
+            <div class="pricing-content-shell pricing-content-shell--wide">
+                <div class="pricing-content active" id="monthly">
                 <div class="pricing-grid">
                     <div class="pricing-card">
                         <div class="pricing-title">体验版</div>
@@ -985,10 +988,12 @@
                     </div>
                 </div>
             </div>
+            </div>
 
             <!-- 年度套餐 -->
-            <div class="pricing-content" id="annual">
-                <div class="pricing-grid">
+            <div class="pricing-content-shell">
+                <div class="pricing-content" id="annual">
+                    <div class="pricing-grid">
                     <div class="pricing-card">
                         <div class="pricing-title">基础版</div>
                         <div class="pricing-badge">6.7折</div>
@@ -1134,10 +1139,12 @@
                     </div>
                 </div>
             </div>
+            </div>
 
             <!-- 一次性套餐 -->
-            <div class="pricing-content" id="onetime">
-                <div class="pricing-grid" style="grid-template-columns: 1fr; max-width: 500px;">
+            <div class="pricing-content-shell">
+                <div class="pricing-content" id="onetime">
+                    <div class="pricing-grid" style="grid-template-columns: 1fr; max-width: 500px;">
                     <div class="pricing-card one-time">
                         <div class="pricing-title">畅享版</div>
                         <div class="pricing-badge">5折</div>
@@ -1277,6 +1284,7 @@
                         <p>未开始使用的服务（订阅期内未消耗任何有效课次）可在购买后 7 天内申请全额退款；已开始使用的服务：不支持退款。如果您认为您有资格获得退款，请通过 <a href="mailto:support@openflat.tech">support@openflat.tech</a> 联系我们，我们将乐意提供帮助。</p>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
 

@@ -42,8 +42,22 @@ p {
     margin: 0 auto;
 }
 
+.pricing-content-shell {
+    width: min(1200px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+.pricing-content-shell--wide {
+    width: min(1328px, calc(100% - 48px));
+}
+
 @media (max-width: 600px) {
     .container {
+        width: calc(100% - 24px);
+    }
+
+    .pricing-content-shell,
+    .pricing-content-shell--wide {
         width: calc(100% - 24px);
     }
 }

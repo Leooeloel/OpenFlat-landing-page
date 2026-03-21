@@ -771,21 +771,24 @@
             </div>
         </section>
 
-        <section class="pricing-section container" id="pricing">
-            <div class="pricing-header">
-                <p class="eyebrow">Pricing Plans</p>
-                <h2>Choose the plan that suits you</h2>
-                <p>Choose based on your class frequency, or purchase a one-time package directly</p>
-            </div>
+        <section class="pricing-section" id="pricing">
+            <div class="container">
+                <div class="pricing-header">
+                    <p class="eyebrow">Pricing Plans</p>
+                    <h2>Choose the plan that suits you</h2>
+                    <p>Choose based on your class frequency, or purchase a one-time package directly</p>
+                </div>
 
-            <div class="pricing-tabs">
-                <button type="button" class="pricing-tab active" data-tab="monthly">Monthly</button>
-                <button type="button" class="pricing-tab" data-tab="annual">Annual</button>
-                <button type="button" class="pricing-tab" data-tab="onetime">One-time Package</button>
+                <div class="pricing-tabs">
+                    <button type="button" class="pricing-tab active" data-tab="monthly">Monthly</button>
+                    <button type="button" class="pricing-tab" data-tab="annual">Annual</button>
+                    <button type="button" class="pricing-tab" data-tab="onetime">One-time Package</button>
+                </div>
             </div>
 
             <!-- Monthly Plans -->
-            <div class="pricing-content active" id="monthly">
+            <div class="pricing-content-shell pricing-content-shell--wide">
+                <div class="pricing-content active" id="monthly">
                 <div class="pricing-grid">
                     <div class="pricing-card">
                         <div class="pricing-title">Experience</div>
@@ -986,10 +989,12 @@
                     </div>
                 </div>
             </div>
+            </div>
 
             <!-- Annual Plans -->
-            <div class="pricing-content" id="annual">
-                <div class="pricing-grid">
+            <div class="pricing-content-shell">
+                <div class="pricing-content" id="annual">
+                    <div class="pricing-grid">
                     <div class="pricing-card">
                         <div class="pricing-title">Basic</div>
                         <div class="pricing-badge">33% off</div>
@@ -1135,10 +1140,12 @@
                     </div>
                 </div>
             </div>
+            </div>
 
             <!-- One-time Package -->
-            <div class="pricing-content" id="onetime">
-                <div class="pricing-grid" style="grid-template-columns: 1fr; max-width: 500px;">
+            <div class="pricing-content-shell">
+                <div class="pricing-content" id="onetime">
+                    <div class="pricing-grid" style="grid-template-columns: 1fr; max-width: 500px;">
                     <div class="pricing-card one-time">
                         <div class="pricing-title">Enjoyment Edition</div>
                         <div class="pricing-badge">50% off</div>
@@ -1278,6 +1285,7 @@
                         <p>Unused services (no valid class sessions consumed during the subscription period) can apply for a full refund within 7 days after purchase. Used services do not support refunds. If you believe you are eligible for a refund, please contact us at <a href="mailto:support@openflat.tech">support@openflat.tech</a>, and we will be happy to help.</p>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
 
