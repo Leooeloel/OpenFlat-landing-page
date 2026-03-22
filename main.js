@@ -16,11 +16,11 @@ void function() {
         })
     }
 
-    modeCards.forEach(card => {
-        card.on('click', () => activateMode(card.dataset.mode))
-    })
+    if (modeCards.length && modeImages.length) {
+        modeCards.forEach(card => {
+            card.on('click', () => activateMode(card.dataset.mode))
+        })
 
-    if (modeCards.length) {
         activateMode(modeCards[0].dataset.mode)
     }
 
